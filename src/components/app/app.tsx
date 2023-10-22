@@ -1,7 +1,11 @@
-import {MainPage} from "../../pages/main-page/main-page.tsx";
+import {MainPage, MainPageProps} from "../../pages/main-page/main-page.tsx";
 
-export function App(): JSX.Element{
+export type AppProps = {
+    mainPageProps: MainPageProps;
+}
+
+export function App({mainPageProps}: AppProps): JSX.Element{
     return (
-        <MainPage/>
+        <MainPage {...mainPageProps}/>
     )
 }

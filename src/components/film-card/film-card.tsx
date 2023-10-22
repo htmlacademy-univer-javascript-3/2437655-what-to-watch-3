@@ -1,16 +1,16 @@
 export type FilmCardProps = {
-    name: string;
+    title: string;
     image: string;
 }
 
-export function FilmCard({name, image}: FilmCardProps): JSX.Element {
+export function FilmCard({title, image}: FilmCardProps): JSX.Element {
     return (
         <article className="small-film-card catalog__films-card">
             <div className="small-film-card__image">
-                <img src={image} alt={name} width="280" height="175" />
+                <img src={image} alt={title} width="280" height="175" />
             </div>
             <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">{name}</a>
+                <a className="small-film-card__link" href="film-page.html">{title}</a>
             </h3>
         </article>
     )

@@ -1,93 +1,100 @@
 import {FilmCard, FilmCardProps} from "../../components/film-card/film-card.tsx";
 
-export function MainPage(): JSX.Element {
+export type MainPageProps = {
+    promoFilmTitle: string;
+    promoFilmGenre: string;
+    promoFilmReleaseDate: number;
+    promoFilmImage: string;
+}
+
+export function MainPage({promoFilmTitle, promoFilmGenre, promoFilmReleaseDate, promoFilmImage} : MainPageProps): JSX.Element {
     const filmCards: FilmCardProps[] =[
         {
             image: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
-            name: 'Fantastic Beasts: The Crimes of Grindelwald',
+            title: 'Fantastic Beasts: The Crimes of Grindelwald',
         },
         {
             image: 'img/bohemian-rhapsody.jpg',
-            name: 'Bohemian Rhapsody',
+            title: 'Bohemian Rhapsody',
         },
         {
             image: 'img/macbeth.jpg',
-            name: 'Macbeth',
+            title: 'Macbeth',
         },
         {
             image: 'img/aviator.jpg',
-            name: 'Aviator',
+            title: 'Aviator',
         },
         {
             image: 'img/we-need-to-talk-about-kevin.jpg',
-            name: 'We need to talk about Kevin',
+            title: 'We need to talk about Kevin',
         },
         {
             image: 'img/what-we-do-in-the-shadows.jpg',
-            name: 'What We Do in the Shadows',
+            title: 'What We Do in the Shadows',
         },
         {
             image: 'img/revenant.jpg',
-            name: 'Revenant',
+            title: 'Revenant',
         },
         {
             image: 'img/johnny-english.jpg',
-            name: 'Johnny English',
+            title: 'Johnny English',
         },
         {
             image: 'img/shutter-island.jpg',
-            name: 'Shutter Island',
+            title: 'Shutter Island',
         },
         {
             image: 'img/pulp-fiction.jpg',
-            name: 'Pulp Fiction',
+            title: 'Pulp Fiction',
         },
         {
             image: 'img/no-country-for-old-men.jpg',
-            name: 'No Country for Old Men',
+            title: 'No Country for Old Men',
         },
         {
             image: 'img/snatch.jpg',
-            name: 'Snatch',
+            title: 'Snatch',
         },
         {
             image: 'img/moonrise-kingdom.jpg',
-            name: 'Moonrise Kingdom',
+            title: 'Moonrise Kingdom',
         },
         {
             image: 'img/seven-years-in-tibet.jpg',
-            name: 'Seven Years in Tibet',
+            title: 'Seven Years in Tibet',
         },
         {
             image: 'img/midnight-special.jpg',
-            name: 'Midnight Special',
+            title: 'Midnight Special',
         },
         {
             image: 'img/war-of-the-worlds.jpg',
-            name: 'War of the Worlds',
+            title: 'War of the Worlds',
         },
         {
             image: 'img/dardjeeling-limited.jpg',
-            name: 'Dardjeeling Limited',
+            title: 'Dardjeeling Limited',
         },
         {
             image: 'img/orlando.jpg',
-            name: 'Orlando',
+            title: 'Orlando',
         },
         {
             image: 'img/mindhunter.jpg',
-            name: 'Mindhunter',
+            title: 'Mindhunter',
         },
         {
             image: 'img/midnight-special.jpg',
-            name: 'Midnight Special'
+            title: 'Midnight Special'
         }
     ]
     return (
         <>
             <section className="film-card">
                 <div className="film-card__bg">
-                    <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+                    <img src={promoFilmImage} alt={promoFilmTitle} />
                 </div>
 
                 <h1 className="visually-hidden">WTW</h1>
@@ -116,14 +123,14 @@ export function MainPage(): JSX.Element {
                 <div className="film-card__wrap">
                     <div className="film-card__info">
                         <div className="film-card__poster">
-                            <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+                            <img src={promoFilmImage} alt={promoFilmTitle} width="218" height="327" />
                         </div>
 
                         <div className="film-card__desc">
-                            <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+                            <h2 className="film-card__title">{promoFilmTitle}</h2>
                             <p className="film-card__meta">
-                                <span className="film-card__genre">Drama</span>
-                                <span className="film-card__year">2014</span>
+                                <span className="film-card__genre">{promoFilmGenre}</span>
+                                <span className="film-card__year">{promoFilmReleaseDate}</span>
                             </p>
 
                             <div className="film-card__buttons">
