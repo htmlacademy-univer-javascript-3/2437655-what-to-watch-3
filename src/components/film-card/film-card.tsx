@@ -1,4 +1,4 @@
-type FilmCardProps = {
+export type FilmCardProps = {
     name: string;
     image: string;
 }
