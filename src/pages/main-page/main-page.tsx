@@ -1,6 +1,6 @@
-import {FilmCard} from '../../components/film-card/film-card.tsx';
 import {Footer} from '../../components/footer/footer.tsx';
 import {Film} from "../../mocks/films.ts";
+import {FilmsList} from "../../components/films-list/films-list.tsx";
 
 export type MainPageProps = {
     promoFilm: Film,
@@ -95,9 +95,7 @@ export function MainPage({promoFilm, films} : MainPageProps): JSX.Element {
               </li>))}
           </ul>
 
-          <div className="catalog__films-list">
-            {films.map((film) => <FilmCard film={film} key={film.id}/>)}
-          </div>
+          <FilmsList films={films}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

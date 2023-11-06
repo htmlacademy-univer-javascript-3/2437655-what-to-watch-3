@@ -1,9 +1,10 @@
 import {Footer} from '../../components/footer/footer.tsx';
-import {FilmCard} from '../../components/film-card/film-card.tsx';
-import {Film, Films} from "../../mocks/films.ts";
-
-const films: Film[] = Films;
-export function MyListPage(): JSX.Element {
+import {Film} from "../../mocks/films.ts";
+import {FilmsList} from "../../components/films-list/films-list.tsx";
+export type MyListPageProps = {
+  films: Film[]
+}
+export function MyListPage({films}: MyListPageProps): JSX.Element {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -31,11 +32,7 @@ export function MyListPage(): JSX.Element {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <div className="catalog__films-list">
-          {
-            films.map((film) => <FilmCard film={film} key={film.id}/>)
-          }
-        </div>
+        <FilmsList films={films}/>
       </section>
 
       <Footer/>

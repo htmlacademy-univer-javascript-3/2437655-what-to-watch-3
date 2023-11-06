@@ -8,10 +8,8 @@ const root = ReactDOM.createRoot(
 );
 
 const appProps: AppProps = {
-  mainPageProps: {
     promoFilm: Films[0],
     films: Films
-  }
 };
 
 root.render(

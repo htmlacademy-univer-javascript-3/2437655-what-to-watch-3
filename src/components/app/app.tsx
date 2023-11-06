@@ -9,31 +9,29 @@ import {PlayerPage} from '../../pages/player-page/player-page.tsx';
 import {NotFoundPage} from '../../pages/not-found-page/not-found-page.tsx';
 import {PrivateRoute} from '../private-route/private-route.tsx';
 
-export type AppProps = {
-    mainPageProps: MainPageProps;
-}
+export type AppProps = MainPageProps
 
-export function App({mainPageProps}: AppProps): JSX.Element{
+export function App({promoFilm, films}: AppProps): JSX.Element{
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={AppRoute.Main} element={<MainPage {...mainPageProps}/>} />
+        <Route path={AppRoute.Main} element={<MainPage promoFilm={promoFilm} films={films}/>} />
         <Route path={AppRoute.SignIn} element={<SignInPage/>}/>
         <Route
           path={AppRoute.MyList}
           element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-              <MyListPage/>
+            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+              <MyListPage films={films}/>
             </PrivateRoute>
           }
         />
         <Route path={AppRoute.Film} element={<FilmPage/>}/>
         <Route path={AppRoute.AddReview} element={<AddReviewPage
-        filmTitle={mainPageProps.promoFilm.title}
-        bgPath={mainPageProps.promoFilm.bgPath}/>}/>
+        filmTitle={promoFilm.title}
+        bgPath={promoFilm.bgPath}/>}/>
         <Route path={AppRoute.Player} element={<PlayerPage
-          videoSource={mainPageProps.promoFilm.videPath}
-          posterPath={mainPageProps.promoFilm.posterPath}/>}/>
+          videoSource={promoFilm.videPath}
+          posterPath={promoFilm.posterPath}/>}/>
         <Route path='*' element={<NotFoundPage/>}/>
       </Routes>
     </BrowserRouter>
