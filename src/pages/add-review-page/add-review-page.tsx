@@ -1,9 +1,15 @@
-export function AddReviewPage(): JSX.Element {
+export type AddReviewPageProps = {
+  filmTitle: string;
+  bgPath: string;
+
+}
+
+export function AddReviewPage({filmTitle, bgPath}: AddReviewPageProps): JSX.Element {
   return (
     <section className="film-card film-card--full">
       <div className="film-card__header">
         <div className="film-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+          <img src={bgPath} alt={filmTitle}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -20,7 +26,7 @@ export function AddReviewPage(): JSX.Element {
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="film-page.html" className="breadcrumbs__link">The Grand Budapest Hotel</a>
+                <a href="film-page.html" className="breadcrumbs__link">{filmTitle}</a>
               </li>
               <li className="breadcrumbs__item">
                 <a className="breadcrumbs__link">Add review</a>

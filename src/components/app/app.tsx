@@ -28,8 +28,12 @@ export function App({mainPageProps}: AppProps): JSX.Element{
           }
         />
         <Route path={AppRoute.Film} element={<FilmPage/>}/>
-        <Route path={AppRoute.AddReview} element={<AddReviewPage/>}/>
-        <Route path={AppRoute.Player} element={<PlayerPage/>}/>
+        <Route path={AppRoute.AddReview} element={<AddReviewPage
+        filmTitle={mainPageProps.promoFilm.title}
+        bgPath={mainPageProps.promoFilm.bgPath}/>}/>
+        <Route path={AppRoute.Player} element={<PlayerPage
+          videoSource={mainPageProps.promoFilm.videPath}
+          posterPath={mainPageProps.promoFilm.posterPath}/>}/>
         <Route path='*' element={<NotFoundPage/>}/>
       </Routes>
     </BrowserRouter>
