@@ -1,3 +1,6 @@
+import {appRoutes} from "../../constants.ts";
+import {Link} from "react-router-dom";
+
 export type AddReviewPageProps = {
   filmTitle: string;
   bgPath: string;
@@ -16,17 +19,17 @@ export function AddReviewPage({filmTitle, bgPath}: AddReviewPageProps): JSX.Elem
 
         <header className="page-header">
           <div className="logo">
-            <a href="main.html" className="logo__link">
+            <Link to={appRoutes.Main} className="logo__link">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
-            </a>
+            </Link>
           </div>
 
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="film-page.html" className="breadcrumbs__link">{filmTitle}</a>
+                <Link to={appRoutes.Film(':id')} className="breadcrumbs__link">{filmTitle}</Link>
               </li>
               <li className="breadcrumbs__item">
                 <a className="breadcrumbs__link">Add review</a>

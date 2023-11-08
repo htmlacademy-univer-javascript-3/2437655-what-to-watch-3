@@ -1,10 +1,10 @@
-export enum AppRoute {
-  Main = '/',
-  SignIn = '/login',
-  MyList = '/mylist',
-  Film = '/films/:id',
-  AddReview = '/films/:id/review',
-  Player = '/player/:id'
+export const appRoutes = {
+  Main: '/',
+  SignIn: '/login',
+  MyList: '/mylist',
+  Film: (id: number | string) => `/films/${id}`,
+  Player: (id: number | string) => `/player/${id}`,
+  AddReview: (id: number | string) => `/films/${id}/review`,
 }
 
 export enum AuthorizationStatus {

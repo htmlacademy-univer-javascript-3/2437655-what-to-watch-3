@@ -1,4 +1,6 @@
 import {Film} from "../../mocks/films.ts";
+import {Link} from "react-router-dom";
+import {appRoutes} from "../../constants.ts";
 
 export type FilmCardProps = {
   film: Film,
@@ -13,7 +15,7 @@ export function FilmCard({film, onMouseEnter, onMouseLeave}: FilmCardProps): JSX
         <img src={film.posterPath} alt={film.title} width="280" height="175" />
       </div>
       <h3 className="small-film-card__title">
-        <a className="small-film-card__link" href="film-page.html">{film.title}</a>
+        <Link className="small-film-card__link" to={appRoutes.Film(film.id)}>{film.title}</Link>
       </h3>
     </article>
   );
