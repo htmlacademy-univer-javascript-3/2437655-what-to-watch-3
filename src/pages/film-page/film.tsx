@@ -1,4 +1,6 @@
 import {Footer} from '../../components/footer/footer.tsx';
+import {appRoutes} from '../../constants.ts';
+import {Link} from 'react-router-dom';
 
 export function FilmPage(): JSX.Element {
   return (
@@ -13,11 +15,11 @@ export function FilmPage(): JSX.Element {
 
           <header className="page-header film-card__head">
             <div className="logo">
-              <a href="main.html" className="logo__link">
+              <Link to={appRoutes.Main} className="logo__link">
                 <span className="logo__letter logo__letter--1">W</span>
                 <span className="logo__letter logo__letter--2">T</span>
                 <span className="logo__letter logo__letter--3">W</span>
-              </a>
+              </Link>
             </div>
 
             <ul className="user-block">
@@ -54,7 +56,7 @@ export function FilmPage(): JSX.Element {
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
+                <Link to={appRoutes.AddReview(':id')} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -113,7 +115,7 @@ export function FilmPage(): JSX.Element {
                 <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
               </div>
               <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Fantastic Beasts: The Crimes of Grindelwald</a>
+                <Link className="small-film-card__link" to={appRoutes.Film(':id')}>Fantastic Beasts: The Crimes of Grindelwald</Link>
               </h3>
             </article>
 
@@ -122,7 +124,7 @@ export function FilmPage(): JSX.Element {
                 <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175" />
               </div>
               <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Bohemian Rhapsody</a>
+                <Link className="small-film-card__link" to={appRoutes.Film(':id')}>Bohemian Rhapsody</Link>
               </h3>
             </article>
 
@@ -131,7 +133,7 @@ export function FilmPage(): JSX.Element {
                 <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175" />
               </div>
               <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Macbeth</a>
+                <Link className="small-film-card__link" to={appRoutes.Film(':id')}>Macbeth</Link>
               </h3>
             </article>
 
@@ -140,7 +142,7 @@ export function FilmPage(): JSX.Element {
                 <img src="img/aviator.jpg" alt="Aviator" width="280" height="175" />
               </div>
               <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Aviator</a>
+                <Link className="small-film-card__link" to={appRoutes.Film(':id')}>Aviator</Link>
               </h3>
             </article>
           </div>

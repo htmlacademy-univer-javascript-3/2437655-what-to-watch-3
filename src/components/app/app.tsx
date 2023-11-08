@@ -1,5 +1,5 @@
 import {MainPage, MainPageProps} from '../../pages/main-page/main-page.tsx';
-import {AppRoute, AuthorizationStatus} from '../../constants.ts';
+import {appRoutes, AuthorizationStatus} from '../../constants.ts';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {SignInPage} from '../../pages/sign-in-page/sign-in-page.tsx';
 import {MyListPage} from '../../pages/my-list-page/my-list.tsx';
@@ -9,28 +9,27 @@ import {PlayerPage} from '../../pages/player-page/player-page.tsx';
 import {NotFoundPage} from '../../pages/not-found-page/not-found-page.tsx';
 import {PrivateRoute} from '../private-route/private-route.tsx';
 
-export type AppProps = {
-    mainPageProps: MainPageProps;
-}
+export type AppProps = MainPageProps
 
-export function App({mainPageProps}: AppProps): JSX.Element{
+export function App(props: AppProps): JSX.Element{
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={AppRoute.Main} element={<MainPage {...mainPageProps}/>} />
-        <Route path={AppRoute.SignIn} element={<SignInPage/>}/>
-        <Route
-          path={AppRoute.MyList}
-          element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-              <MyListPage/>
+        <Route path={appRoutes.Main}>
+          <Route index element={<MainPage {...props}/>} />
+          <Route path={appRoutes.SignIn} element={<SignInPage/>}/>
+          <Route path={appRoutes.MyList} element={
+            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+              <MyListPage films={props.films}/>
             </PrivateRoute>
           }
-        />
-        <Route path={AppRoute.Film} element={<FilmPage/>}/>
-        <Route path={AppRoute.AddReview} element={<AddReviewPage/>}/>
-        <Route path={AppRoute.Player} element={<PlayerPage/>}/>
-        <Route path='*' element={<NotFoundPage/>}/>
+          />
+          <Route path={appRoutes.Film(':id')} element={<FilmPage/>}/>
+          <Route path={appRoutes.AddReview(':id')} element={<AddReviewPage filmTitle={props.promoFilm.title} bgPath={props.promoFilm.bgPath}/>}/>
+          <Route path={appRoutes.Player(':id')} element={<PlayerPage videoSource={props.promoFilm.videPath} posterPath={props.promoFilm.posterPath}/>}/>
+          <Route path='*' element={<NotFoundPage/>}/>
+        </Route>
+
       </Routes>
     </BrowserRouter>
   );
