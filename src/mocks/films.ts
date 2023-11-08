@@ -1,12 +1,12 @@
-import {Genre, RatingLevel} from "../constants.ts";
+import {Genre, RatingLevel} from '../constants.ts';
 
 export type Film = {
-  id: number
+  id: number;
   title: string;
   genre: Genre;
   releaseDate: number;
   posterPath: string;
-  bgPath: string,
+  bgPath: string;
   ratingScore: number;
   RatingLevel: RatingLevel;
   RatingsCount: number;
@@ -110,4 +110,4 @@ export const Films: Film[] = [
     RatingsCount: 285,
     videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
   }
-]
+];

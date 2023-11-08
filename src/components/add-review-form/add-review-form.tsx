@@ -1,4 +1,4 @@
-import {StarRating} from "../star-rating/star-rating.tsx";
+import {StarRating} from '../star-rating/star-rating.tsx';
 import { useCallback, useState } from 'react';
 
 export type ReviewForm = {

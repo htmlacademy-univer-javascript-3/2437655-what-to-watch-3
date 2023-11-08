@@ -1,6 +1,6 @@
 export type PlayerPageProps = {
    videoSource: string;
-   posterPath: string
+   posterPath: string;
 }
 
 export function PlayerPage({videoSource, posterPath}: PlayerPageProps): JSX.Element {

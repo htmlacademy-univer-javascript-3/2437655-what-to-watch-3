@@ -1,6 +1,6 @@
-import {appRoutes} from "../../constants.ts";
-import {Link} from "react-router-dom";
-import {AddReviewForm} from "../../components/add-review-form/add-review-form.tsx";
+import {appRoutes} from '../../constants.ts';
+import {Link} from 'react-router-dom';
+import {AddReviewForm} from '../../components/add-review-form/add-review-form.tsx';
 
 export type AddReviewPageProps = {
   filmTitle: string;

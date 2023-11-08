@@ -1,10 +1,10 @@
 import {Footer} from '../../components/footer/footer.tsx';
-import {Film} from "../../mocks/films.ts";
-import {FilmsList} from "../../components/films-list/films-list.tsx";
+import {Film} from '../../mocks/films.ts';
+import {FilmsList} from '../../components/films-list/films-list.tsx';
 
 export type MainPageProps = {
-    promoFilm: Film,
-    films: Film[]
+    promoFilm: Film;
+    films: Film[];
 }
 
 export function MainPage({promoFilm, films} : MainPageProps): JSX.Element {

@@ -1,6 +1,6 @@
 import {Footer} from '../../components/footer/footer.tsx';
-import {appRoutes} from "../../constants.ts";
-import {Link} from "react-router-dom";
+import {appRoutes} from '../../constants.ts';
+import {Link} from 'react-router-dom';
 
 export function FilmPage(): JSX.Element {
   return (

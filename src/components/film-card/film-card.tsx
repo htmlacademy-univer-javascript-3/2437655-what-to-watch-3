@@ -1,11 +1,11 @@
-import {Film} from "../../mocks/films.ts";
-import {Link} from "react-router-dom";
-import {appRoutes} from "../../constants.ts";
+import {Film} from '../../mocks/films.ts';
+import {Link} from 'react-router-dom';
+import {appRoutes} from '../../constants.ts';
 
 export type FilmCardProps = {
-  film: Film,
-  onMouseEnter: () => void,
-  onMouseLeave: () => void
+  film: Film;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
 }
 
 export function FilmCard({film, onMouseEnter, onMouseLeave}: FilmCardProps): JSX.Element {

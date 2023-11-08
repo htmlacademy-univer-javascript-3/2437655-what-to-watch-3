@@ -1,10 +1,10 @@
 import {Footer} from '../../components/footer/footer.tsx';
-import {Film} from "../../mocks/films.ts";
-import {FilmsList} from "../../components/films-list/films-list.tsx";
-import {appRoutes} from "../../constants.ts";
-import {Link} from "react-router-dom";
+import {Film} from '../../mocks/films.ts';
+import {FilmsList} from '../../components/films-list/films-list.tsx';
+import {appRoutes} from '../../constants.ts';
+import {Link} from 'react-router-dom';
 export type MyListPageProps = {
-  films: Film[]
+  films: Film[];
 }
 export function MyListPage({films}: MyListPageProps): JSX.Element {
   return (

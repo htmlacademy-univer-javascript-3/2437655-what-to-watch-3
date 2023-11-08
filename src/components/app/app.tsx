@@ -18,21 +18,15 @@ export function App(props: AppProps): JSX.Element{
         <Route path={appRoutes.Main}>
           <Route index element={<MainPage {...props}/>} />
           <Route path={appRoutes.SignIn} element={<SignInPage/>}/>
-          <Route
-            path={appRoutes.MyList}
-            element={
-              <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
-                <MyListPage films={props.films}/>
-              </PrivateRoute>
-            }
+          <Route path={appRoutes.MyList} element={
+            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+              <MyListPage films={props.films}/>
+            </PrivateRoute>
+          }
           />
           <Route path={appRoutes.Film(':id')} element={<FilmPage/>}/>
-          <Route path={appRoutes.AddReview(':id')} element={<AddReviewPage
-            filmTitle={props.promoFilm.title}
-            bgPath={props.promoFilm.bgPath}/>}/>
-          <Route path={appRoutes.Player(':id')} element={<PlayerPage
-            videoSource={props.promoFilm.videPath}
-            posterPath={props.promoFilm.posterPath}/>}/>
+          <Route path={appRoutes.AddReview(':id')} element={<AddReviewPage filmTitle={props.promoFilm.title} bgPath={props.promoFilm.bgPath}/>}/>
+          <Route path={appRoutes.Player(':id')} element={<PlayerPage videoSource={props.promoFilm.videPath} posterPath={props.promoFilm.posterPath}/>}/>
           <Route path='*' element={<NotFoundPage/>}/>
         </Route>
 
