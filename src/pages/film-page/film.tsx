@@ -1,6 +1,11 @@
 import {Footer} from '../../components/footer/footer.tsx';
 import {appRoutes} from '../../constants.ts';
 import {Link} from 'react-router-dom';
+import {Tabs} from '../../components/tabs/tabs.tsx';
+import {Tab} from '../../components/tabs/tab.tsx';
+import {OverviewTab} from './tabs/overview-tab.tsx';
+import {DetailsTab} from './tabs/details-tab.tsx';
+import {ReviewsTab} from './tabs/reviews-tab.tsx';
 
 export function FilmPage(): JSX.Element {
   return (
@@ -69,19 +74,17 @@ export function FilmPage(): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              <nav className="film-nav film-card__nav">
-                <ul className="film-nav__list">
-                  <li className="film-nav__item film-nav__item--active">
-                    <a href="#" className="film-nav__link">Overview</a>
-                  </li>
-                  <li className="film-nav__item">
-                    <a href="#" className="film-nav__link">Details</a>
-                  </li>
-                  <li className="film-nav__item">
-                    <a href="#" className="film-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
+              <Tabs>
+                <Tab name="Overview">
+                  <OverviewTab />
+                </Tab>
+                <Tab name="Details">
+                  <DetailsTab />
+                </Tab>
+                <Tab name="Reviews">
+                  <ReviewsTab />
+                </Tab>
+              </Tabs>
 
               <div className="film-rating">
                 <div className="film-rating__score">8,9</div>
