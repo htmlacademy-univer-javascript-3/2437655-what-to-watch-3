@@ -29,8 +29,8 @@ export function App(props: AppProps): JSX.Element{
           }
           />
           <Route path={appRoutes.Film(':id')} element={<FilmPage/>}/>
-          <Route path={appRoutes.AddReview(':id')} element={<AddReviewPage filmTitle={props.promoFilm.title} bgPath={props.promoFilm.bgPath}/>}/>
-          <Route path={appRoutes.Player(':id')} element={<PlayerPage videoSource={props.promoFilm.videPath} posterPath={props.promoFilm.posterPath}/>}/>
+          <Route path={appRoutes.AddReview(':id')} element={<AddReviewPage filmTitle={props.promoFilm.name} bgPath={props.promoFilm.bgPath}/>}/>
+          <Route path={appRoutes.Player(':id')} element={<PlayerPage videoSource={props.promoFilm.previewVideoLink} posterPath={props.promoFilm.previewImage}/>}/>
           <Route path='*' element={<NotFoundPage/>}/>
         </Route>
 

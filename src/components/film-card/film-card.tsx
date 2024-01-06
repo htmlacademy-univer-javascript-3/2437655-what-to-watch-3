@@ -14,10 +14,10 @@ export function FilmCard({film}: FilmCardProps): JSX.Element {
   return (
     <article className="small-film-card catalog__films-card" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <div className="small-film-card__image">
-        <PreviewPlayer videoSource={film.videPath} posterSource={film.posterPath} isHovered={isHovered}/>
+        <PreviewPlayer videoSource={film.previewVideoLink} posterSource={film.previewImage} isHovered={isHovered}/>
       </div>
       <h3 className="small-film-card__title">
-        <Link className="small-film-card__link" to={appRoutes.Film(film.id)}>{film.title}</Link>
+        <Link className="small-film-card__link" to={appRoutes.Film(film.id)}>{film.name}</Link>
       </h3>
     </article>
   );

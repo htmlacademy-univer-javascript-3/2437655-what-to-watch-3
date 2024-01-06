@@ -7,7 +7,6 @@ import {OverviewTab} from './tabs/overview-tab.tsx';
 import {DetailsTab} from './tabs/details-tab.tsx';
 import {ReviewsTab} from './tabs/reviews-tab.tsx';
 import {FilmsList} from '../../components/films-list/films-list';
-import {Films} from '../../mocks/films';
 
 export function FilmPage(): JSX.Element {
   return (
@@ -113,7 +112,7 @@ export function FilmPage(): JSX.Element {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-          <FilmsList films={Films.slice(0, 4)}/>
+          <FilmsList films={[]}/>
         </section>
 
         <Footer/>

@@ -3,13 +3,13 @@ import {RatingLevel} from '../constants';
 
 export type Film = {
   id: number;
-  title: string;
+  name: string;
   genre: Genre;
   releaseDate: number;
-  posterPath: string;
+  previewImage: string;
   bgPath: string;
   ratingScore: number;
   RatingLevel: RatingLevel;
   RatingsCount: number;
-  videPath: string;
+  previewVideoLink: string;
 }
