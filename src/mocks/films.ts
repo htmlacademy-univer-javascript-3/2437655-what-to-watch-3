@@ -4,134 +4,134 @@ import {Film} from '../types/film.ts';
 export const Films: Film[] = [
   {
     id: 1,
-    title: 'The Grand Budapest Hotel',
+    name: 'The Grand Budapest Hotel',
     genre: Genre.Drama,
     releaseDate: 2014,
-    posterPath: 'img/the-grand-budapest-hotel-poster.jpg',
+    previewImage: 'img/the-grand-budapest-hotel-poster.jpg',
     bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
     ratingScore: 8.9,
     RatingLevel: RatingLevel.VeryGood,
     RatingsCount: 240,
-    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+    previewVideoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
   },
   {
     id: 2,
-    title: 'Bohemian Rhapsody',
+    name: 'Bohemian Rhapsody',
     genre: Genre.Drama,
     releaseDate: 2018,
-    posterPath: 'img/bohemian-rhapsody.jpg',
+    previewImage: 'img/bohemian-rhapsody.jpg',
     bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
     ratingScore: 8.1,
     RatingLevel: RatingLevel.VeryGood,
     RatingsCount: 321,
-    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+    previewVideoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
   },
   {
     id: 3,
-    title: 'Macbeth',
+    name: 'Macbeth',
     genre: Genre.Drama,
     releaseDate: 2015,
-    posterPath: 'img/macbeth.jpg',
+    previewImage: 'img/macbeth.jpg',
     bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
     ratingScore: 5.7,
     RatingLevel: RatingLevel.Average,
     RatingsCount: 32,
-    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+    previewVideoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
   },
   {
     id: 4,
-    title: 'Aviator',
+    name: 'Aviator',
     genre: Genre.Drama,
     releaseDate: 2014,
-    posterPath: 'img/aviator.jpg',
+    previewImage: 'img/aviator.jpg',
     bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
     ratingScore: 8.3,
     RatingLevel: RatingLevel.VeryGood,
     RatingsCount: 421,
-    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+    previewVideoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
   },
   {
     id: 5,
-    title: 'We need to talk about Kevin',
+    name: 'We need to talk about Kevin',
     genre: Genre.Thriller,
     releaseDate: 2012,
-    posterPath: 'img/we-need-to-talk-about-kevin.jpg',
+    previewImage: 'img/we-need-to-talk-about-kevin.jpg',
     bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
     ratingScore: 2.1,
     RatingLevel: RatingLevel.VeryBad,
     RatingsCount: 163,
-    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+    previewVideoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
   },
   {
     id: 6,
-    title: 'What We Do in the Shadows',
+    name: 'What We Do in the Shadows',
     genre: Genre.Comedy,
     releaseDate: 2019,
-    posterPath: 'img/what-we-do-in-the-shadows.jpg',
+    previewImage: 'img/what-we-do-in-the-shadows.jpg',
     bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
     ratingScore: 6.1,
     RatingLevel: RatingLevel.Good,
     RatingsCount: 54,
-    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+    previewVideoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
   },
   {
     id: 7,
-    title: 'Revenant',
+    name: 'Revenant',
     genre: Genre.Drama,
     releaseDate: 2016,
-    posterPath: 'img/revenant.jpg',
+    previewImage: 'img/revenant.jpg',
     bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
     ratingScore: 8.5,
     RatingLevel: RatingLevel.VeryGood,
     RatingsCount: 765,
-    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+    previewVideoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
   },
   {
     id: 8,
-    title: 'Johnny English',
+    name: 'Johnny English',
     genre: Genre.Comedy,
     releaseDate: 2003,
-    posterPath: 'img/johnny-english.jpg',
+    previewImage: 'img/johnny-english.jpg',
     bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
     ratingScore: 3.9,
     RatingLevel: RatingLevel.Bad,
     RatingsCount: 285,
-    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+    previewVideoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
   },
   {
     id: 9,
-    title: 'What We Do in the Shadows 2',
+    name: 'What We Do in the Shadows 2',
     genre: Genre.Comedy,
     releaseDate: 2019,
-    posterPath: 'img/what-we-do-in-the-shadows.jpg',
+    previewImage: 'img/what-we-do-in-the-shadows.jpg',
     bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
     ratingScore: 6.1,
     RatingLevel: RatingLevel.Good,
     RatingsCount: 54,
-    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+    previewVideoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
   },
   {
     id: 10,
-    title: 'Revenant 2',
+    name: 'Revenant 2',
     genre: Genre.Drama,
     releaseDate: 2016,
-    posterPath: 'img/revenant.jpg',
+    previewImage: 'img/revenant.jpg',
     bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
     ratingScore: 8.5,
     RatingLevel: RatingLevel.VeryGood,
     RatingsCount: 765,
-    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+    previewVideoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
   },
   {
     id: 11,
-    title: 'Johnny English 2',
+    name: 'Johnny English 2',
     genre: Genre.Comedy,
     releaseDate: 2003,
-    posterPath: 'img/johnny-english.jpg',
+    previewImage: 'img/johnny-english.jpg',
     bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
     ratingScore: 3.9,
     RatingLevel: RatingLevel.Bad,
     RatingsCount: 285,
-    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+    previewVideoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
   }
 ];
