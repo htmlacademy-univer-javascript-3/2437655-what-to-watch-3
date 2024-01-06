@@ -5,6 +5,10 @@ import {useAppSelector} from '../../hooks/store.ts';
 import {filterFilms} from '../../helpers/filterFilms.ts';
 import {GenresList} from '../../components/genres-list/genres-list.tsx';
 import {Genre} from '../../constants';
+import {useCallback, useState} from 'react';
+import {ShowMoreButton} from '../../components/show-more-button/show-more-button';
+
+const FILMS_ON_PAGE_COUNT = 8;
 
 export type MainPageProps = {
     promoFilm: Film;
@@ -14,6 +18,10 @@ export function MainPage({promoFilm} : MainPageProps): JSX.Element {
   const { allFilms, currentGenre } = useAppSelector((state) => state);
   const films = filterFilms(allFilms, currentGenre);
   const genres = [Genre.AllGenres, ...new Set(allFilms.map((film) => film.genre))];
+  const [countFilms, setCountFilms] = useState(FILMS_ON_PAGE_COUNT);
+  const handleShowMore = useCallback(() => {
+    setCountFilms((prev) => prev + FILMS_ON_PAGE_COUNT);
+  }, [setCountFilms]);
 
   return (
     <>
@@ -83,11 +91,10 @@ export function MainPage({promoFilm} : MainPageProps): JSX.Element {
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
           <GenresList genres={genres} activeGenre={currentGenre}/>
-          <FilmsList films={films}/>
-
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          <FilmsList films={films.slice(0, countFilms)}/>
+          {countFilms < films.length && (
+            <ShowMoreButton onClick={handleShowMore} />
+          )}
         </section>
 
         <Footer/>
