@@ -1,17 +1,5 @@
 import {Genre, RatingLevel} from '../constants.ts';
-
-export type Film = {
-  id: number;
-  title: string;
-  genre: Genre;
-  releaseDate: number;
-  posterPath: string;
-  bgPath: string;
-  ratingScore: number;
-  RatingLevel: RatingLevel;
-  RatingsCount: number;
-  videPath: string;
-}
+import {Film} from '../types/film.ts';
 
 export const Films: Film[] = [
   {

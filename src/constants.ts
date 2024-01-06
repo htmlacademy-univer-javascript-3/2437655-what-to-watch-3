@@ -14,6 +14,7 @@ export enum AuthorizationStatus {
 }
 
 export enum Genre {
+  AllGenres = 'All genres',
   Comedy = 'Comedy',
   Crime = 'Crime',
   Documentary = 'Documentary',
