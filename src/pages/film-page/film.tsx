@@ -6,6 +6,8 @@ import {Tab} from '../../components/tabs/tab.tsx';
 import {OverviewTab} from './tabs/overview-tab.tsx';
 import {DetailsTab} from './tabs/details-tab.tsx';
 import {ReviewsTab} from './tabs/reviews-tab.tsx';
+import {FilmsList} from '../../components/films-list/films-list';
+import {Films} from '../../mocks/films';
 
 export function FilmPage(): JSX.Element {
   return (
@@ -111,44 +113,7 @@ export function FilmPage(): JSX.Element {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-
-          <div className="catalog__films-list">
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
-              </div>
-              <h3 className="small-film-card__title">
-                <Link className="small-film-card__link" to={appRoutes.Film(':id')}>Fantastic Beasts: The Crimes of Grindelwald</Link>
-              </h3>
-            </article>
-
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175" />
-              </div>
-              <h3 className="small-film-card__title">
-                <Link className="small-film-card__link" to={appRoutes.Film(':id')}>Bohemian Rhapsody</Link>
-              </h3>
-            </article>
-
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175" />
-              </div>
-              <h3 className="small-film-card__title">
-                <Link className="small-film-card__link" to={appRoutes.Film(':id')}>Macbeth</Link>
-              </h3>
-            </article>
-
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/aviator.jpg" alt="Aviator" width="280" height="175" />
-              </div>
-              <h3 className="small-film-card__title">
-                <Link className="small-film-card__link" to={appRoutes.Film(':id')}>Aviator</Link>
-              </h3>
-            </article>
-          </div>
+          <FilmsList films={Films.slice(0, 4)}/>
         </section>
 
         <Footer/>

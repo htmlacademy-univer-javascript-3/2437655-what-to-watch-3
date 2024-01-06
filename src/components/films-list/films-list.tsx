@@ -1,5 +1,5 @@
 import {FilmCard} from '../film-card/film-card.tsx';
-import {Film} from '../../mocks/films.ts';
+import {Film} from '../../types/film.ts';
 
 export type FilmsListProps = {
   films: Film[];

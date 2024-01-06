@@ -1,26 +1,20 @@
 import {Footer} from '../../components/footer/footer.tsx';
-import {Film} from '../../mocks/films.ts';
+import {Film} from '../../types/film.ts';
 import {FilmsList} from '../../components/films-list/films-list.tsx';
+import {useAppSelector} from '../../hooks/store.ts';
+import {filterFilms} from '../../helpers/filterFilms.ts';
+import {GenresList} from '../../components/genres-list/genres-list.tsx';
+import {Genre} from '../../constants';
 
 export type MainPageProps = {
     promoFilm: Film;
-    films: Film[];
 }
 
-export function MainPage({promoFilm, films} : MainPageProps): JSX.Element {
-  const genres: string[] = [
-    'All genres',
-    'Comedies',
-    'Crime',
-    'Documentary',
-    'Dramas',
-    'Horror',
-    'Kids',
-    'Family',
-    'Romance',
-    'Sci-Fi',
-    'Thrillers'
-  ];
+export function MainPage({promoFilm} : MainPageProps): JSX.Element {
+  const { allFilms, currentGenre } = useAppSelector((state) => state);
+  const films = filterFilms(allFilms, currentGenre);
+  const genres = [Genre.AllGenres, ...new Set(allFilms.map((film) => film.genre))];
+
   return (
     <>
       <section className="film-card">
@@ -88,13 +82,7 @@ export function MainPage({promoFilm, films} : MainPageProps): JSX.Element {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <ul className="catalog__genres-list">
-            {genres.map((genre) => (
-              <li className="catalog__genres-item catalog__genres-item--active" key={genre}>
-                <a href="#" className="catalog__genres-link">{genre}</a>
-              </li>))}
-          </ul>
-
+          <GenresList genres={genres} activeGenre={currentGenre}/>
           <FilmsList films={films}/>
 
           <div className="catalog__more">

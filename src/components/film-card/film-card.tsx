@@ -1,4 +1,4 @@
-import {Film} from '../../mocks/films.ts';
+import {Film} from '../../types/film.ts';
 import {Link} from 'react-router-dom';
 import {appRoutes} from '../../constants.ts';
 import {useState} from 'react';

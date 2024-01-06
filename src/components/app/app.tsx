@@ -1,4 +1,4 @@
-import {MainPage, MainPageProps} from '../../pages/main-page/main-page.tsx';
+import {MainPage} from '../../pages/main-page/main-page.tsx';
 import {appRoutes, AuthorizationStatus} from '../../constants.ts';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {SignInPage} from '../../pages/sign-in-page/sign-in-page.tsx';
@@ -8,8 +8,12 @@ import {AddReviewPage} from '../../pages/add-review-page/add-review-page.tsx';
 import {PlayerPage} from '../../pages/player-page/player-page.tsx';
 import {NotFoundPage} from '../../pages/not-found-page/not-found-page.tsx';
 import {PrivateRoute} from '../private-route/private-route.tsx';
+import {Film} from '../../types/film';
 
-export type AppProps = MainPageProps
+export type AppProps = {
+  promoFilm: Film;
+  films: Film[];
+}
 
 export function App(props: AppProps): JSX.Element{
   return (
