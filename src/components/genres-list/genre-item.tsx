@@ -17,8 +17,12 @@ export const GenreItem = ({ genre, isActive }: GenreItemProps) => {
         'catalog__genres-item--active': isActive,
       })}
     >
-      <a
-        href="#"
+      <button
+        style={{
+          background: 'transparent',
+          border: 'none',
+          cursor: 'pointer',
+        }}
         className="catalog__genres-link"
         onClick={(event) => {
           dispatch(setGenre(genre));
@@ -26,7 +30,7 @@ export const GenreItem = ({ genre, isActive }: GenreItemProps) => {
         }}
       >
         {genre}
-      </a>
+      </button>
     </li>
   );
 };

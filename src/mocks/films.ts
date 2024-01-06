@@ -97,5 +97,41 @@ export const Films: Film[] = [
     RatingLevel: RatingLevel.Bad,
     RatingsCount: 285,
     videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+  },
+  {
+    id: 9,
+    title: 'What We Do in the Shadows 2',
+    genre: Genre.Comedy,
+    releaseDate: 2019,
+    posterPath: 'img/what-we-do-in-the-shadows.jpg',
+    bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
+    ratingScore: 6.1,
+    RatingLevel: RatingLevel.Good,
+    RatingsCount: 54,
+    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+  },
+  {
+    id: 10,
+    title: 'Revenant 2',
+    genre: Genre.Drama,
+    releaseDate: 2016,
+    posterPath: 'img/revenant.jpg',
+    bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
+    ratingScore: 8.5,
+    RatingLevel: RatingLevel.VeryGood,
+    RatingsCount: 765,
+    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
+  },
+  {
+    id: 11,
+    title: 'Johnny English 2',
+    genre: Genre.Comedy,
+    releaseDate: 2003,
+    posterPath: 'img/johnny-english.jpg',
+    bgPath: 'img/bg-the-grand-budapest-hotel.jpg',
+    ratingScore: 3.9,
+    RatingLevel: RatingLevel.Bad,
+    RatingsCount: 285,
+    videPath: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
   }
 ];
