@@ -7,14 +7,11 @@ import {
   fetchPromoFilmAction,
   fetchSimilarFilmsAction,
 } from '../store/apiActions.ts';
-import {
-  useAllFilmsSelector,
-  useCommentsSelector,
-  useCurrentFilmSelector,
-  usePromoFilmSelector,
-  useSimilarFilmsSelector,
-} from '../store/selectors.ts';
-
+import { useAllFilmsSelector } from '../store/films/selectors.ts';
+import { useCurrentFilmSelector } from '../store/film/selectors.ts';
+import { usePromoFilmSelector } from '../store/promoFilm/selectors.ts';
+import { useSimilarFilmsSelector } from '../store/similarFilms/selectors.ts';
+import { useCommentsSelector } from '../store/comments/selectors.ts';
 export const useFilms = () => {
   const dispatch = useAppDispatch();
 

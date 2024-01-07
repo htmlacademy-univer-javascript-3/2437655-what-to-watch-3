@@ -1,7 +1,7 @@
 import {ReactNode, useCallback} from 'react';
 import {logoutAction} from '../../store/apiActions';
 import {useAppDispatch} from '../../hooks/store';
-import {useAuthorizationStatusSelector, useAvatarLinkSelector} from '../../store/selectors';
+import {useAuthorizationStatusSelector, useAvatarLinkSelector} from '../../store/user/selectors';
 import {Link} from 'react-router-dom';
 import {MouseEvent} from 'react';
 import {AuthorizationStatus} from '../../types/auth';

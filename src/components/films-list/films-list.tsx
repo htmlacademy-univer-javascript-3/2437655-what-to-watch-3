@@ -1,14 +1,14 @@
 import {FilmCard, FilmCardProps} from '../film-card/film-card.tsx';
 
 export type FilmsListProps = {
-  filmCardProps: FilmCardProps[];
+  films: FilmCardProps[];
 }
 
-export function FilmsList({filmCardProps}: FilmsListProps): JSX.Element{
+export function FilmsList({films}: FilmsListProps): JSX.Element{
 
   return (
     <div className="catalog__films-list">
-      {filmCardProps.map((film) => (
+      {films.map((film) => (
         <FilmCard key={film.id} {...film} />
       ))}
     </div>

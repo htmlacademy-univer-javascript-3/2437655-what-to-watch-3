@@ -13,7 +13,7 @@ export function MyListPage({films}: MyListPageProps): JSX.Element {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <FilmsList filmCardProps={films}/>
+        <FilmsList films={films}/>
       </section>
 
       <Footer/>
