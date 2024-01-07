@@ -6,7 +6,7 @@ import {
   CommentType,
   FilmListType,
   FilmType,
-  SimilarFilmType, PromoFilmType,
+  PromoFilmType,
 } from '../types/film.ts';
 import {ApiRoutes} from '../services/api-routes';
 import { AuthData, UserData } from '../types/auth.ts';
@@ -52,7 +52,7 @@ export const fetchPromoFilmAction = createAsyncThunk<
   });
 
 export const fetchSimilarFilmsAction = createAsyncThunk<
-  SimilarFilmType[],
+  FilmListType[],
   string,
   {
     dispatch: AppDispatch;
@@ -60,10 +60,40 @@ export const fetchSimilarFilmsAction = createAsyncThunk<
     extra: AxiosInstance;
   }
   >('data/fetchSimilarFilms', async (filmId, { extra: api }) => {
-    const { data } = await api.get<SimilarFilmType[]>(
+    const { data } = await api.get<FilmListType[]>(
       ApiRoutes.SimilarFilms(filmId),
     );
     return data;
+  });
+
+export const fetchFavouriteFilmsAction = createAsyncThunk<
+  FilmListType[],
+  undefined,
+  {
+    dispatch: AppDispatch;
+    state: State;
+    extra: AxiosInstance;
+  }
+  >('data/fetchFavouriteFilms', async (_arg, { extra: api }) => {
+    const { data } = await api.get<FilmListType[]>(ApiRoutes.FavoriteFilms);
+    return data;
+  });
+
+export const postFavouriteFilmAction = createAsyncThunk<
+  boolean,
+  { filmId: string; status: boolean },
+  {
+    dispatch: AppDispatch;
+    state: State;
+    extra: AxiosInstance;
+  }
+  >('data/postFavouriteFilm', async ({ filmId, status }, { extra: api }) => {
+    try {
+      await api.post(ApiRoutes.FavoriteFilm(filmId, status));
+      return true;
+    } catch {
+      return false;
+    }
   });
 
 export const fetchCommentsAction = createAsyncThunk<

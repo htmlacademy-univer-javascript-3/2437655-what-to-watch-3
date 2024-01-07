@@ -21,7 +21,7 @@ export function App(props: AppProps): JSX.Element{
           <Route index element={<MainPage/>} />
           <Route path={appRoutes.SignIn} element={<SignInPage/>}/>
           <Route element={<PrivateRoute />}>
-            <Route path={appRoutes.MyList} element={<MyListPage films={[]} />}/>
+            <Route path={appRoutes.MyList} element={<MyListPage />}/>
           </Route>
           <Route path={appRoutes.Film(':id')} element={<FilmPage/>}/>
           <Route path={appRoutes.AddReview(':id')} element={<AddReviewPage/>}/>

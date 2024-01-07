@@ -13,6 +13,7 @@ import {useFilm, useSimilarFilms} from '../../hooks/films';
 import {Loader} from '../../components/loader';
 import {AuthorizationStatus} from '../../types/auth';
 import {usePathId} from '../../hooks/usePathId';
+import {FavouriteButton} from '../../components/favourite-button/favourite-button';
 
 export function FilmPage(): JSX.Element {
   const id = usePathId();
@@ -50,16 +51,7 @@ export function FilmPage(): JSX.Element {
                       <span>Play</span>
                     </button>
                     {authStatus === AuthorizationStatus.Auth && (
-                      <button
-                        className="btn btn--list film-card__button"
-                        type="button"
-                      >
-                        <svg viewBox="0 0 19 20" width="19" height="20">
-                          <use xlinkHref="#add"></use>
-                        </svg>
-                        <span>My list</span>
-                        <span className="film-card__count">9</span>
-                      </button>
+                      <FavouriteButton filmId={id} />
                     )}
                     {authStatus === AuthorizationStatus.Auth && (
                       <Link
