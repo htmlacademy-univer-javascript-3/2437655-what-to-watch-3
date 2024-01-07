@@ -34,8 +34,8 @@ export const fetchFilmAction = createAsyncThunk<
     extra: AxiosInstance;
   }
   >('data/fetchFilm', async (filmId, { extra: api }) => {
-  const { data } = await api.get<FilmType>(ApiRoutes.Film(filmId));
-  return data;
+    const { data } = await api.get<FilmType>(ApiRoutes.Film(filmId));
+    return data;
   });
 
 export const fetchPromoFilmAction = createAsyncThunk<
@@ -47,9 +47,9 @@ export const fetchPromoFilmAction = createAsyncThunk<
     extra: AxiosInstance;
   }
   >('data/fetchPromoFilm', async (_arg, { extra: api }) => {
-  const { data } = await api.get<PromoFilmType>(ApiRoutes.PromoFilm);
-  return data;
-});
+    const { data } = await api.get<PromoFilmType>(ApiRoutes.PromoFilm);
+    return data;
+  });
 
 export const fetchSimilarFilmsAction = createAsyncThunk<
   SimilarFilmType[],
@@ -60,11 +60,11 @@ export const fetchSimilarFilmsAction = createAsyncThunk<
     extra: AxiosInstance;
   }
   >('data/fetchSimilarFilms', async (filmId, { extra: api }) => {
-  const { data } = await api.get<SimilarFilmType[]>(
-    ApiRoutes.SimilarFilms(filmId),
-  );
-  return data;
-});
+    const { data } = await api.get<SimilarFilmType[]>(
+      ApiRoutes.SimilarFilms(filmId),
+    );
+    return data;
+  });
 
 export const fetchCommentsAction = createAsyncThunk<
   CommentType[],
@@ -75,9 +75,9 @@ export const fetchCommentsAction = createAsyncThunk<
     extra: AxiosInstance;
   }
   >('data/fetchComments', async (filmId, { extra: api }) => {
-  const { data } = await api.get<CommentType[]>(ApiRoutes.Comments(filmId));
-  return data;
-});
+    const { data } = await api.get<CommentType[]>(ApiRoutes.Comments(filmId));
+    return data;
+  });
 
 export const postCommentAction = createAsyncThunk<
   boolean,
@@ -104,9 +104,9 @@ export const checkAuthAction = createAsyncThunk<
     extra: AxiosInstance;
   }
   >('user/checkAuth', async (_arg, { extra: api }) => {
-  const { data } = await api.get<UserData>(ApiRoutes.Login);
-  return data;
-});
+    const { data } = await api.get<UserData>(ApiRoutes.Login);
+    return data;
+  });
 
 export const loginAction = createAsyncThunk<
   UserData,
@@ -117,13 +117,13 @@ export const loginAction = createAsyncThunk<
     extra: AxiosInstance;
   }
   >('user/login', async ({ email, password }, { extra: api }) => {
-  const { data } = await api.post<UserData>(ApiRoutes.Login, {
-    email,
-    password,
+    const { data } = await api.post<UserData>(ApiRoutes.Login, {
+      email,
+      password,
+    });
+    saveToken(data.token);
+    return data;
   });
-  saveToken(data.token);
-  return data;
-});
 
 export const logoutAction = createAsyncThunk<
   void,

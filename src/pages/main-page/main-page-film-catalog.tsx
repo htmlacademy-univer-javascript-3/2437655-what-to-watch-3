@@ -23,15 +23,15 @@ export const MainPageFilmCatalog = () => {
 
   return (
     <section className="catalog">
-    <h2 className="catalog__title visually-hidden">Catalog</h2>
+      <h2 className="catalog__title visually-hidden">Catalog</h2>
 
       <Loader isLoading={isLoading}>
-  <GenresList genres={genres} activeGenre={currentGenre} />
-  <FilmsList films={films?.slice(0, countFilms)} />
-  {countFilms < films?.length && (
-    <ShowMoreButton onClick={handleShowMore} />
-  )}
-  </Loader>
-  </section>
-);
+        <GenresList genres={genres} activeGenre={currentGenre} />
+        <FilmsList films={films?.slice(0, countFilms)} />
+        {countFilms < films?.length && (
+          <ShowMoreButton onClick={handleShowMore} />
+        )}
+      </Loader>
+    </section>
+  );
 };
