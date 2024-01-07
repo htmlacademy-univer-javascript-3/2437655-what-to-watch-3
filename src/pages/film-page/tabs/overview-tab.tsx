@@ -1,4 +1,4 @@
-import {useCurrentFilmSelector} from '../../../store/selectors';
+import {useCurrentFilmSelector} from '../../../store/film/selectors.ts';
 
 export function OverviewTab(): JSX.Element {
   const data = useCurrentFilmSelector().data;

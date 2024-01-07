@@ -1,11 +1,12 @@
 import {ReactNode, useCallback} from 'react';
 import {logoutAction} from '../../store/apiActions';
 import {useAppDispatch} from '../../hooks/store';
-import {useAuthorizationStatusSelector, useAvatarLinkSelector} from '../../store/selectors';
+import {useAuthorizationStatusSelector, useAvatarLinkSelector} from '../../store/user/selectors';
 import {Link} from 'react-router-dom';
 import {MouseEvent} from 'react';
 import {AuthorizationStatus} from '../../types/auth';
 import {appRoutes} from '../../constants';
+import {Logo} from '../logo/logo';
 
 type HeaderProps = {
   children?: ReactNode;
@@ -25,13 +26,7 @@ export function Header({children}: HeaderProps): JSX.Element {
 
   return (
     <header className="page-header film-card__head">
-      <div className="logo">
-        <a className="logo__link">
-          <span className="logo__letter logo__letter--1">W</span>
-          <span className="logo__letter logo__letter--2">T</span>
-          <span className="logo__letter logo__letter--3">W</span>
-        </a>
-      </div>
+      <Logo/>
       {children}
       {authStatus === AuthorizationStatus.Auth ? (
         <ul className="user-block">

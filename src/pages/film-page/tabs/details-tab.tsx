@@ -1,4 +1,4 @@
-import {useCurrentFilmSelector} from '../../../store/selectors';
+import {useCurrentFilmSelector} from '../../../store/film/selectors.ts';
 import {formatDuration} from '../../../helpers/formatter';
 
 export function DetailsTab(): JSX.Element {

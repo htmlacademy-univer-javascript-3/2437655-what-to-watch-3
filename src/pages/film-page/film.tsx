@@ -8,7 +8,7 @@ import {DetailsTab} from './tabs/details-tab.tsx';
 import {ReviewsTab} from './tabs/reviews-tab.tsx';
 import {FilmsList} from '../../components/films-list/films-list';
 import {Header} from '../../components/header/header';
-import {useAuthorizationStatusSelector} from '../../store/selectors';
+import {useAuthorizationStatusSelector} from '../../store/user/selectors';
 import {useFilm, useSimilarFilms} from '../../hooks/films';
 import {Loader} from '../../components/loader';
 import {AuthorizationStatus} from '../../types/auth';
@@ -103,7 +103,7 @@ export function FilmPage(): JSX.Element {
         <div className="page-content">
           <section className="catalog catalog--like-this">
             <h2 className="catalog__title">More like this</h2>
-            <FilmsList filmCardProps={similarFilms} />
+            <FilmsList films={similarFilms} />
           </section>
           <Footer />
         </div>
