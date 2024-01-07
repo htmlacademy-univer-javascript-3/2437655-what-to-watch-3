@@ -1,11 +1,11 @@
-import {Film} from '../types/film';
-import {Genre} from '../constants';
+import {FilmListType} from '../types/filmType';
+import {ALL_GENRES} from '../constants';
 
 export const filterFilms = (
-  films: Array<Film>,
-  genre: Genre,
-): Array<Film> => {
-  if (genre === Genre.AllGenres) {
+  films: Array<FilmListType>,
+  genre: string,
+): Array<FilmListType> => {
+  if (genre === ALL_GENRES) {
     return films;
   }
 

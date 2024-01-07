@@ -1,10 +1,9 @@
 import classNames from 'classnames';
 import { useAppDispatch } from '../../hooks/store.ts';
-import { setGenre } from '../../store/action.ts';
-import {Genre} from '../../constants';
+import { setGenre } from '../../store/actions.ts';
 
 type GenreItemProps = {
-  genre: Genre;
+  genre: string;
   isActive?: boolean;
 };
 
