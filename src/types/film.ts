@@ -1,15 +1,58 @@
-import {Genre} from '../constants';
-import {RatingLevel} from '../constants';
-
-export type Film = {
-  id: number;
+export type FilmListType = {
+  id: string;
   name: string;
-  genre: Genre;
-  releaseDate: number;
+  genre: string;
   previewImage: string;
-  bgPath: string;
-  ratingScore: number;
-  RatingLevel: RatingLevel;
-  RatingsCount: number;
   previewVideoLink: string;
 }
+
+export type FilmType = {
+  id: string;
+  name: string;
+  posterImage: string;
+  backgroundImage: string;
+  backgroundColor: string;
+  videoLink: string;
+  description: string;
+  rating: number;
+  scoresCount: number;
+  director: string;
+  starring: [string];
+  runTime: number;
+  genre: string;
+  released: number;
+  isFavorite: boolean;
+}
+
+export type PromoFilmType = {
+  id: string;
+  name: string;
+  posterImage: string;
+  backgroundImage: string;
+  videoLink: string;
+  genre: string;
+  released: number;
+  isFavorite: boolean;
+};
+
+export type SimilarFilmType = {
+  id: string;
+  name: string;
+  previewImage: string;
+  previewVideoLink: string;
+  genre: string;
+}
+
+export type CommentType = {
+  id: string;
+  date: string;
+  user: string;
+  comment: string;
+  rating: number;
+}
+
+export type AddCommentType = {
+  comment: string;
+  rating: number;
+}
+

@@ -1,19 +1,60 @@
 import {createReducer} from '@reduxjs/toolkit';
-import {setFilms, setGenre, setLoadingFilms, setAvatarLink, setAuthorizationStatus} from './action.ts';
-import {Film} from '../types/film.ts';
-import {Genre} from '../constants';
+import {
+  setFilms,
+  setGenre,
+  setLoadingFilms,
+  setAvatarLink,
+  setAuthorizationStatus,
+  setFilm,
+  setLoadingFilm,
+  setSimilarFilms,
+  setLoadingSimilarFilms,
+  setLoadingPromoFilm,
+  setPromoFilm,
+  setComments,
+  setLoadingComments,
+  setErrorMessageFilm
+} from './actions.ts';
+import {FilmType, SimilarFilmType, FilmListType, CommentType, PromoFilmType} from '../types/film.ts';
 import {AuthorizationStatus} from '../types/auth';
+import {ALL_GENRES} from '../constants';
 
 type state = {
-  currentGenre: Genre;
-  allFilms: { isLoading: boolean; isError: boolean; films: Array<Film> };
-  user: {avatarLink: string; authorizationStatus: AuthorizationStatus};
+  currentGenre: string;
+  allFilms: {
+    isLoading: boolean;
+    error?: string;
+    data: Array<FilmListType>;
+  };
+  user: {
+    avatarLink: string;
+    authorizationStatus: AuthorizationStatus;
+  };
+  promoFilm: { isLoading: boolean; error?: string; data?: PromoFilmType };
+  currentFilm: { isLoading: boolean; error?: string; data?: FilmType };
+  similarFilms: {
+    isLoading: boolean;
+    error?: string;
+    data: Array<SimilarFilmType>;
+  };
+  comments: {
+    isLoading: boolean;
+    error?: string;
+    data: Array<CommentType>;
+  };
 };
 
 const initialState: state = {
-  currentGenre: Genre.AllGenres,
-  allFilms: { isLoading: false, isError: false, films: [] },
-  user: {authorizationStatus: AuthorizationStatus.Unknown, avatarLink: ''}
+  currentGenre: ALL_GENRES,
+  allFilms: { isLoading: false, data: [] },
+  user: {
+    authorizationStatus: AuthorizationStatus.Unknown,
+    avatarLink: '',
+  },
+  promoFilm: { isLoading: false, data: undefined },
+  currentFilm: { isLoading: false, data: undefined },
+  similarFilms: { isLoading: false, data: [] },
+  comments: { isLoading: false, data: [] },
 };
 
 const reducer = createReducer(initialState, (builder) => {
@@ -22,7 +63,7 @@ const reducer = createReducer(initialState, (builder) => {
       state.currentGenre = value.payload;
     })
     .addCase(setFilms, (state, value) => {
-      state.allFilms.films = value.payload;
+      state.allFilms.data = value.payload;
     })
     .addCase(setLoadingFilms, (state, value) => {
       state.allFilms.isLoading = value.payload;
@@ -32,6 +73,33 @@ const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(setAvatarLink, (state, value) => {
       state.user.avatarLink = value.payload;
+    })
+    .addCase(setFilm, (state, value) => {
+      state.currentFilm.data = value.payload;
+    })
+    .addCase(setLoadingFilm, (state, value) => {
+      state.currentFilm.isLoading = value.payload;
+    })
+    .addCase(setSimilarFilms, (state, value) => {
+      state.similarFilms.data = value.payload;
+    })
+    .addCase(setLoadingSimilarFilms, (state, value) => {
+      state.similarFilms.isLoading = value.payload;
+    })
+    .addCase(setComments, (state, value) => {
+      state.comments.data = value.payload;
+    })
+    .addCase(setLoadingComments, (state, value) => {
+      state.comments.isLoading = value.payload;
+    })
+    .addCase(setErrorMessageFilm, (state, value) => {
+      state.currentFilm.error = value.payload;
+    })
+    .addCase(setLoadingPromoFilm, (state, value) => {
+      state.promoFilm.isLoading = value.payload;
+    })
+    .addCase(setPromoFilm, (state, value) => {
+      state.promoFilm.data = value.payload;
     });
 });
 

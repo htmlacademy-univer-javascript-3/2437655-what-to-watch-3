@@ -1,8 +1,7 @@
 import { GenreItem} from './genre-item';
-import {Genre} from '../../constants';
 
 type GenresListProps = {
-  genres: Genre[];
+  genres: string[];
   activeGenre: string;
 };
 
