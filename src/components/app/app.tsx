@@ -1,5 +1,5 @@
 import {MainPage} from '../../pages/main-page/main-page.tsx';
-import {appRoutes, AuthorizationStatus} from '../../constants.ts';
+import {appRoutes} from '../../constants.ts';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {SignInPage} from '../../pages/sign-in-page/sign-in-page.tsx';
 import {MyListPage} from '../../pages/my-list-page/my-list.tsx';
@@ -22,12 +22,9 @@ export function App(props: AppProps): JSX.Element{
         <Route path={appRoutes.Main}>
           <Route index element={<MainPage {...props}/>} />
           <Route path={appRoutes.SignIn} element={<SignInPage/>}/>
-          <Route path={appRoutes.MyList} element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
-              <MyListPage films={props.films}/>
-            </PrivateRoute>
-          }
-          />
+          <Route element={<PrivateRoute />}>
+            <Route path={appRoutes.MyList} element={<MyListPage films={[]} />}/>
+          </Route>
           <Route path={appRoutes.Film(':id')} element={<FilmPage/>}/>
           <Route path={appRoutes.AddReview(':id')} element={<AddReviewPage filmTitle={props.promoFilm.name} bgPath={props.promoFilm.bgPath}/>}/>
           <Route path={appRoutes.Player(':id')} element={<PlayerPage videoSource={props.promoFilm.previewVideoLink} posterPath={props.promoFilm.previewImage}/>}/>

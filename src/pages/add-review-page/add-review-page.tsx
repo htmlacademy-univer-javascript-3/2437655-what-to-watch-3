@@ -19,7 +19,7 @@ export function AddReviewPage({filmTitle, bgPath}: AddReviewPageProps): JSX.Elem
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <Header children={
+        <Header>
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
@@ -30,7 +30,7 @@ export function AddReviewPage({filmTitle, bgPath}: AddReviewPageProps): JSX.Elem
               </li>
             </ul>
           </nav>
-        }/>
+        </Header>
 
         <div className="film-card__poster film-card__poster--small">
           <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />

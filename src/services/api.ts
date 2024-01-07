@@ -14,8 +14,7 @@ const StatusCodeMapping: Record<number, boolean> = {
   [StatusCodes.NOT_FOUND]: true,
 };
 
-const shouldDisplayError = (response: AxiosResponse): boolean =>
-  !!StatusCodeMapping[response.status];
+const shouldDisplayError = (response: AxiosResponse): boolean => !!StatusCodeMapping[response.status];
 
 export function createAPI(): AxiosInstance {
   const api = axios.create({
@@ -37,9 +36,13 @@ export function createAPI(): AxiosInstance {
     (response) => response,
     (error: AxiosError<ErrorType>) => {
       if (error.response && shouldDisplayError(error.response)) {
-        const detailMessage = error.response.data;
+        const { message, errorType, details } = error.response.data;
 
-        toast.warn(detailMessage.message);
+        if (errorType === 'VALIDATION_ERROR') {
+          toast.error(details[0].messages[0]);
+        } else if (errorType !== 'COMMON_ERROR') {
+          toast.warn(message);
+        }
       }
 
       throw error;

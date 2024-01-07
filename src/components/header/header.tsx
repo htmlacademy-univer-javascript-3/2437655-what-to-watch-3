@@ -1,10 +1,28 @@
-import {ReactNode} from 'react';
+import {ReactNode, useCallback} from 'react';
+import {logoutAction} from '../../store/apiActions';
+import {useAppDispatch} from '../../hooks/store';
+import {useAuthorizationStatus, useAvatarLink} from '../../store/selectors';
+import {Link} from 'react-router-dom';
+import {MouseEvent} from 'react';
+import {AuthorizationStatus} from '../../types/auth';
+import {appRoutes} from '../../constants';
 
 type HeaderProps = {
-  children?: ReactNode
+  children?: ReactNode;
 }
 
 export function Header({children}: HeaderProps): JSX.Element {
+  const authStatus = useAuthorizationStatus();
+  const avatarLink = useAvatarLink();
+  const dispatch = useAppDispatch();
+  const signOutHandler = useCallback(
+    (event: MouseEvent<HTMLElement>) => {
+      event.preventDefault();
+      dispatch(logoutAction());
+    },
+    [dispatch],
+  );
+
   return (
     <header className="page-header film-card__head">
       <div className="logo">
@@ -15,16 +33,26 @@ export function Header({children}: HeaderProps): JSX.Element {
         </a>
       </div>
       {children}
-      <ul className="user-block">
-        <li className="user-block__item">
-          <div className="user-block__avatar">
-            <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-          </div>
-        </li>
-        <li className="user-block__item">
-          <a className="user-block__link">Sign out</a>
-        </li>
-      </ul>
+      {authStatus === AuthorizationStatus.Auth ? (
+        <ul className="user-block">
+          <li className="user-block__item">
+            <div className="user-block__avatar">
+              <img src={avatarLink} alt="User avatar" width="63" height="63" />
+            </div>
+          </li>
+          <li className="user-block__item">
+            <a onClick={signOutHandler} className="user-block__link">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      ) : (
+        <div className="user-block">
+          <Link to={appRoutes.SignIn} className="user-block__link">
+            Sign in
+          </Link>
+        </div>
+      )}
     </header>
   );
 }

@@ -7,12 +7,6 @@ export const appRoutes = {
   AddReview: (id: number | string) => `/films/${id}/review`,
 };
 
-export enum AuthorizationStatus {
-  Auth = 'AUTH',
-  NoAuth = 'NO_AUTH',
-  Unknown = 'UNKNOWN'
-}
-
 export enum Genre {
   AllGenres = 'All genres',
   Comedy = 'Comedy',
