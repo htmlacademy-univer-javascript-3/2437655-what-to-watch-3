@@ -5,6 +5,7 @@ import { AuthorizationStatus} from '../../types/auth';
 import { useAuthorizationStatusSelector} from '../../store/user/selectors';
 import { MainPageFilmCatalog} from './main-page-film-catalog';
 import {FavouriteButton} from '../../components/favourite-button/favourite-button';
+import {PlayButton} from '../../components/play-button/play-button';
 
 export function MainPage(): JSX.Element {
   const authStatus = useAuthorizationStatusSelector();
@@ -35,6 +36,7 @@ export function MainPage(): JSX.Element {
               </p>
 
               <div className="film-card__buttons">
+                <PlayButton filmId={promoFilm?.id}/>
                 {authStatus === AuthorizationStatus.Auth && (
                   <FavouriteButton filmId={promoFilm?.id} />
                 )}
