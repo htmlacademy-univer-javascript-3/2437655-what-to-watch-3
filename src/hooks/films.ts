@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useAppDispatch } from './store.ts';
 import {
   fetchCommentsAction,
   fetchFilmAction,
+  fetchFavouriteFilmsAction,
   fetchFilmsAction,
   fetchPromoFilmAction,
   fetchSimilarFilmsAction,
@@ -12,6 +13,8 @@ import { useCurrentFilmSelector } from '../store/film/selectors.ts';
 import { usePromoFilmSelector } from '../store/promoFilm/selectors.ts';
 import { useSimilarFilmsSelector } from '../store/similarFilms/selectors.ts';
 import { useCommentsSelector } from '../store/comments/selectors.ts';
+import {useFavouriteFilmsSelector} from '../store/favouriteFilms/selectors';
+
 export const useFilms = () => {
   const dispatch = useAppDispatch();
 
@@ -43,6 +46,17 @@ export const usePromoFilm = () => {
 
   const { data, isLoading, error } = usePromoFilmSelector();
   return { data: data, isLoading, error };
+};
+
+export const useFavouriteFilms = () => {
+  const dispatch = useAppDispatch();
+
+  const fetchFavouriteFilms = useCallback(() => {
+    dispatch(fetchFavouriteFilmsAction());
+  }, [dispatch]);
+
+  const { data, isLoading, error } = useFavouriteFilmsSelector();
+  return { data: data, isLoading, error, fetchFavouriteFilms };
 };
 
 export const useSimilarFilms = (id: string) => {
