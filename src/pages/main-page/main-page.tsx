@@ -1,7 +1,7 @@
 import {Footer} from '../../components/footer/footer.tsx';
 import {Film} from '../../types/film.ts';
 import {FilmsList} from '../../components/films-list/films-list.tsx';
-import {useAppSelector, useAppDispatch} from '../../hooks/store.ts';
+import {useAppDispatch} from '../../hooks/store.ts';
 import {filterFilms} from '../../helpers/filterFilms.ts';
 import {GenresList} from '../../components/genres-list/genres-list.tsx';
 import {Genre} from '../../constants';
@@ -9,6 +9,8 @@ import {useCallback, useState, useEffect} from 'react';
 import {ShowMoreButton} from '../../components/show-more-button/show-more-button';
 import {fetchFilmsAction} from '../../store/apiActions';
 import {Loader} from '../../components/loader';
+import {Header} from '../../components/header/header';
+import {useCurrentGenre, useFilms} from '../../store/selectors';
 
 const FILMS_ON_PAGE_COUNT = 8;
 
@@ -22,10 +24,8 @@ export function MainPage({promoFilm} : MainPageProps): JSX.Element {
     dispatch(fetchFilmsAction());
   }, [dispatch]);
 
-  const { films: allFilms, isLoading } = useAppSelector(
-    (state) => state.allFilms,
-  );
-  const currentGenre = useAppSelector((state) => state.currentGenre);
+  const { films: allFilms, isLoading } = useFilms();
+  const currentGenre = useCurrentGenre();
   const films = filterFilms(allFilms, currentGenre);
   const genres = [Genre.AllGenres, ...new Set(allFilms.map((film) => film.genre))];
   const [countFilms, setCountFilms] = useState(FILMS_ON_PAGE_COUNT);
@@ -42,26 +42,7 @@ export function MainPage({promoFilm} : MainPageProps): JSX.Element {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <header className="page-header film-card__head">
-          <div className="logo">
-            <a className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <ul className="user-block">
-            <li className="user-block__item">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-              </div>
-            </li>
-            <li className="user-block__item">
-              <a className="user-block__link">Sign out</a>
-            </li>
-          </ul>
-        </header>
+        <Header/>
 
         <div className="film-card__wrap">
           <div className="film-card__info">

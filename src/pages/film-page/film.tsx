@@ -7,6 +7,7 @@ import {OverviewTab} from './tabs/overview-tab.tsx';
 import {DetailsTab} from './tabs/details-tab.tsx';
 import {ReviewsTab} from './tabs/reviews-tab.tsx';
 import {FilmsList} from '../../components/films-list/films-list';
+import {Header} from '../../components/header/header';
 
 export function FilmPage(): JSX.Element {
   return (
@@ -19,26 +20,7 @@ export function FilmPage(): JSX.Element {
 
           <h1 className="visually-hidden">WTW</h1>
 
-          <header className="page-header film-card__head">
-            <div className="logo">
-              <Link to={appRoutes.Main} className="logo__link">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </Link>
-            </div>
-
-            <ul className="user-block">
-              <li className="user-block__item">
-                <div className="user-block__avatar">
-                  <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-                </div>
-              </li>
-              <li className="user-block__item">
-                <a className="user-block__link">Sign out</a>
-              </li>
-            </ul>
-          </header>
+          <Header/>
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
