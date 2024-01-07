@@ -10,12 +10,7 @@ import {NotFoundPage} from '../../pages/not-found-page/not-found-page.tsx';
 import {PrivateRoute} from '../private-route/private-route.tsx';
 
 type AppProps = {
-  name: string;
-  genre: string;
-  releaseDate: number;
   player: PlayerPageProps;
-  backgroundImage: string;
-  posterImage: string;
 };
 
 export function App(props: AppProps): JSX.Element{
@@ -23,7 +18,7 @@ export function App(props: AppProps): JSX.Element{
     <BrowserRouter>
       <Routes>
         <Route path={appRoutes.Main}>
-          <Route index element={<MainPage {...props}/>} />
+          <Route index element={<MainPage/>} />
           <Route path={appRoutes.SignIn} element={<SignInPage/>}/>
           <Route element={<PrivateRoute />}>
             <Route path={appRoutes.MyList} element={<MyListPage films={[]} />}/>

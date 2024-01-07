@@ -19,5 +19,4 @@ export const useSimilarFilmsSelector = () => useAppSelector((state) => state.sim
 
 export const useCommentsSelector = () => useAppSelector((state) => state.comments);
 
-export const usePromoFilmSelector = () =>
-  useAppSelector((state) => state.promoFilm);
+export const usePromoFilmSelector = () => useAppSelector((state) => state.promoFilm);

@@ -2,13 +2,13 @@ import {appRoutes} from '../../constants.ts';
 import {Link} from 'react-router-dom';
 import {AddReviewForm} from '../../components/add-review-form/add-review-form.tsx';
 import {Header} from '../../components/header/header';
-import {useParams} from 'react-router-dom';
 import {useFilm} from '../../hooks/films';
 import {Loader} from '../../components/loader';
+import {usePathId} from '../../hooks/usePathId';
 
 export function AddReviewPage(): JSX.Element {
-  const { id } = useParams();
-  const { film, isLoading } = useFilm(id);
+  const id = usePathId();
+  const { data: film, isLoading } = useFilm(id);
   return (
     <Loader isLoading={isLoading}>
       <section className="film-card film-card--full">

@@ -18,14 +18,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ToastContainer/>
-      <App
-        name={'The Grand Budapest Hotel'}
-        genre={'Drama'}
-        releaseDate={2014}
-        player={PLAYER}
-        posterImage={'img/the-grand-budapest-hotel-poster.jpg'}
-        backgroundImage={'img/bg-the-grand-budapest-hotel.jpg'}
-      />
+      <App player={PLAYER}/>
     </Provider>
   </React.StrictMode>
 );

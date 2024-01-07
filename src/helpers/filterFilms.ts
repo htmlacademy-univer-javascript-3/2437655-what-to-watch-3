@@ -1,4 +1,4 @@
-import {FilmListType} from '../types/filmType';
+import {FilmListType} from '../types/film';
 import {ALL_GENRES} from '../constants';
 
 export const filterFilms = (

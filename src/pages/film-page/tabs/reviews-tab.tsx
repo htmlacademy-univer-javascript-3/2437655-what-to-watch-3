@@ -1,11 +1,11 @@
-import { useParams } from 'react-router-dom';
 import {formatDate} from '../../../helpers/formatter';
 import {Loader} from '../../../components/loader';
 import {useComments} from '../../../hooks/films';
+import {usePathId} from '../../../hooks/usePathId';
 
 export function ReviewsTab(): JSX.Element {
-  const { id } = useParams();
-  const { comments, isLoading } = useComments(id);
+  const id = usePathId();
+  const { data: comments, isLoading } = useComments(id);
   return (
     <div className="film-card__reviews film-card__row">
       <div className="film-card__reviews-col">

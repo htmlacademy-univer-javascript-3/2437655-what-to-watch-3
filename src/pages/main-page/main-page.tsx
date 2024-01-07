@@ -6,22 +6,16 @@ import {useCallback, useState} from 'react';
 import {ShowMoreButton} from '../../components/show-more-button/show-more-button';
 import {Loader} from '../../components/loader';
 import {Header} from '../../components/header/header';
-import {useAuthorizationStatusSelector, useCurrentGenreSelector, useFilmsSelector} from '../../store/selectors';
+import {useAuthorizationStatusSelector, useCurrentGenreSelector} from '../../store/selectors';
 import {AuthorizationStatus} from '../../types/auth';
 import {ALL_GENRES} from '../../constants';
+import {useFilms, usePromoFilm} from '../../hooks/films';
 
 const FILMS_ON_PAGE_COUNT = 8;
 
-export type MainPageProps = {
-  name: string;
-  genre: string;
-  releaseDate: number;
-  backgroundImage: string;
-  posterImage: string;
-}
-
-export function MainPage({name, genre, releaseDate, backgroundImage, posterImage} : MainPageProps): JSX.Element {
-  const { films: allFilms, isLoading } = useFilmsSelector();
+export function MainPage(): JSX.Element {
+  const { data: allFilms, isLoading } = useFilms();
+  const { data: promoFilm } = usePromoFilm();
   const currentGenre = useCurrentGenreSelector();
   const films = filterFilms(allFilms, currentGenre);
   const genres = [ALL_GENRES, ...new Set(allFilms.map((film) => film.genre))];
@@ -35,7 +29,7 @@ export function MainPage({name, genre, releaseDate, backgroundImage, posterImage
     <>
       <section className="film-card">
         <div className="film-card__bg">
-          <img src={backgroundImage} alt={name} />
+          <img src={promoFilm?.backgroundImage} alt={promoFilm?.name} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -45,14 +39,14 @@ export function MainPage({name, genre, releaseDate, backgroundImage, posterImage
         <div className="film-card__wrap">
           <div className="film-card__info">
             <div className="film-card__poster">
-              <img src={posterImage} alt={name} width="218" height="327" />
+              <img src={promoFilm?.posterImage} alt={promoFilm?.name} width="218" height="327" />
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">{name}</h2>
+              <h2 className="film-card__title">{promoFilm?.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{genre}</span>
-                <span className="film-card__year">{releaseDate}</span>
+                <span className="film-card__genre">{promoFilm?.genre}</span>
+                <span className="film-card__year">{promoFilm?.released}</span>
               </p>
 
               <div className="film-card__buttons">

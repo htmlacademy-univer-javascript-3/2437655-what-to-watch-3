@@ -1,4 +1,4 @@
-import { AxiosInstance } from 'axios';
+import {AxiosError, AxiosInstance} from 'axios';
 import { AppDispatch, State } from '../types/state.ts';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
@@ -20,10 +20,11 @@ import {
   FilmListType,
   FilmType,
   SimilarFilmType, PromoFilmType,
-} from '../types/filmType.ts';
+} from '../types/film.ts';
 import {ApiRoutes} from '../services/api-routes';
 import { AuthData, AuthorizationStatus, UserData } from '../types/auth.ts';
 import { dropToken, saveToken } from '../services/token.ts';
+import {ErrorType} from '../types/error';
 export const fetchFilmsAction = createAsyncThunk<
   void,
   undefined,
@@ -41,7 +42,7 @@ export const fetchFilmsAction = createAsyncThunk<
 
 export const fetchFilmAction = createAsyncThunk<
   void,
-  string | undefined,
+  string,
   {
     dispatch: AppDispatch;
     state: State;
@@ -54,9 +55,10 @@ export const fetchFilmAction = createAsyncThunk<
       dispatch(setLoadingFilm(false));
       dispatch(setErrorMessageFilm(''));
       dispatch(setFilm(data));
-    } catch (err: any) {
+    } catch (error) {
+      const err = error as AxiosError<ErrorType>;
       dispatch(setLoadingFilm(false));
-      dispatch(setErrorMessageFilm(err.response.data.message));
+      dispatch(setErrorMessageFilm(err.response?.data.message));
     }
   });
 
@@ -77,7 +79,7 @@ export const fetchPromoFilmAction = createAsyncThunk<
 
 export const fetchSimilarFilmsAction = createAsyncThunk<
   void,
-  string | undefined,
+  string,
   {
     dispatch: AppDispatch;
     state: State;
@@ -94,7 +96,7 @@ export const fetchSimilarFilmsAction = createAsyncThunk<
 
 export const fetchCommentsAction = createAsyncThunk<
   void,
-  string | undefined,
+  string,
   {
     dispatch: AppDispatch;
     state: State;

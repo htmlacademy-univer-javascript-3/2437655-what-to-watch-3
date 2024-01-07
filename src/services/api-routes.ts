@@ -5,5 +5,5 @@ export const ApiRoutes = {
   Logout: '/logout',
   Film: (id: string) => `/films/${id}`,
   SimilarFilms: (id: string) => `/films/${id}/similar`,
-  Comments: (id: string) => `/comments/${id}`
+  Comments: (id: string) => `/comments/${id}`,
 };

@@ -8,17 +8,17 @@ import {DetailsTab} from './tabs/details-tab.tsx';
 import {ReviewsTab} from './tabs/reviews-tab.tsx';
 import {FilmsList} from '../../components/films-list/films-list';
 import {Header} from '../../components/header/header';
-import {useParams} from 'react-router-dom';
 import {useAuthorizationStatusSelector} from '../../store/selectors';
 import {useFilm, useSimilarFilms} from '../../hooks/films';
 import {Loader} from '../../components/loader';
 import {AuthorizationStatus} from '../../types/auth';
+import {usePathId} from '../../hooks/usePathId';
 
 export function FilmPage(): JSX.Element {
-  const { id } = useParams();
+  const id = usePathId();
   const authStatus = useAuthorizationStatusSelector();
-  const { film, error, isLoading } = useFilm(id);
-  const { films: similarFilms } = useSimilarFilms(id);
+  const { data: film, error, isLoading } = useFilm(id);
+  const { data: similarFilms } = useSimilarFilms(id);
   return (
     <Loader isLoading={isLoading}>
       <section className="film-card film-card--full">
