@@ -3,18 +3,33 @@ import {useAppDispatch} from '../../hooks/store';
 import {useNavigate} from 'react-router-dom';
 import {useState, MouseEvent} from 'react';
 import {loginAction} from '../../store/apiActions';
-import {appRoutes} from '../../constants';
+import {appRoutes, EMAIL_REGEX, PASSWORD_REGEX} from '../../constants';
 import {Logo} from '../../components/logo/logo';
+import {toast} from 'react-toastify';
 
 export function SignInPage(): JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const handleSubmit = (event: MouseEvent<HTMLElement>) => {
     event.preventDefault();
-    dispatch(loginAction({ email, password }));
-    navigate(appRoutes.Main);
+
+    if(!EMAIL_REGEX.test(email)){
+      toast.error("Invalid email");
+      return;
+    }
+    if(!PASSWORD_REGEX.test(password)){
+      toast.error("Password must contain letters and numbers")
+      return;
+    }
+
+    dispatch(loginAction({ email, password })).then((result) => {
+      if (result.payload) {
+        navigate(appRoutes.Main);
+      }
+    });
   };
 
   return (
