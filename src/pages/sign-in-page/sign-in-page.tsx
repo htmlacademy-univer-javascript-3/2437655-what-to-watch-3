@@ -17,11 +17,11 @@ export function SignInPage(): JSX.Element {
     event.preventDefault();
 
     if(!EMAIL_REGEX.test(email)){
-      toast.error("Invalid email");
+      toast.error('Invalid email');
       return;
     }
     if(!PASSWORD_REGEX.test(password)){
-      toast.error("Password must contain letters and numbers")
+      toast.error('Password must contain letters and numbers');
       return;
     }
 
