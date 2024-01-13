@@ -14,6 +14,8 @@ import { usePromoFilmSelector } from '../store/promoFilm/selectors.ts';
 import { useSimilarFilmsSelector } from '../store/similarFilms/selectors.ts';
 import { useCommentsSelector } from '../store/comments/selectors.ts';
 import {useFavouriteFilmsSelector} from '../store/favouriteFilms/selectors';
+import {appRoutes} from '../constants';
+import {useNavigate} from 'react-router-dom';
 
 export const useFilms = () => {
   const dispatch = useAppDispatch();
@@ -21,8 +23,13 @@ export const useFilms = () => {
   useEffect(() => {
     dispatch(fetchFilmsAction());
   }, [dispatch]);
-
   const { data, isLoading, error } = useAllFilmsSelector();
+  const navigate = useNavigate();
+
+  if(error){
+    navigate(appRoutes.NotFound);
+  }
+
   return { data: data, isLoading, error };
 };
 
@@ -34,6 +41,11 @@ export const useFilm = (id: string) => {
   }, [dispatch, id]);
 
   const { data, isLoading, error } = useCurrentFilmSelector();
+  const navigate = useNavigate();
+
+  if(error){
+    navigate(appRoutes.NotFound);
+  }
   return { data: data, isLoading, error };
 };
 
@@ -45,6 +57,11 @@ export const usePromoFilm = () => {
   }, [dispatch]);
 
   const { data, isLoading, error } = usePromoFilmSelector();
+  const navigate = useNavigate();
+
+  if(error){
+    navigate(appRoutes.NotFound);
+  }
   return { data: data, isLoading, error };
 };
 
@@ -56,6 +73,11 @@ export const useFavouriteFilms = () => {
   }, [dispatch]);
 
   const { data, isLoading, error } = useFavouriteFilmsSelector();
+  const navigate = useNavigate();
+
+  if(error){
+    navigate(appRoutes.NotFound);
+  }
   return { data: data, isLoading, error, fetchFavouriteFilms };
 };
 
